@@ -86,13 +86,8 @@ export function ProcessSection() {
             const Icon = step.icon;
             return (
               <FadeIn key={step.number} delay={i * 0.06} direction="left" className="flex gap-4">
-                <div className="relative flex flex-col items-center shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-white border-2 border-brand flex items-center justify-center text-brand shrink-0">
-                    <Icon size={16} strokeWidth={2} />
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="absolute top-10 bottom-0 left-1/2 -translate-x-1/2 w-px bg-line" />
-                  )}
+                <div className="w-10 h-10 rounded-full bg-white border-2 border-brand flex items-center justify-center text-brand shrink-0">
+                  <Icon size={16} strokeWidth={2} />
                 </div>
                 <div className="pb-2">
                   <p className="text-xs font-bold text-brand/50 tabular-nums">{step.number}</p>
