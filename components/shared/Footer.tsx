@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { WA_HREF, PHONE_HREF, PHONE_NUMBER, ADDRESS } from "@/lib/contacts";
 
 const services = [
@@ -55,13 +55,6 @@ export function Footer() {
               >
                 <MessageCircle size={14} />
                 WhatsApp
-              </a>
-              <a
-                href="mailto:info@teamprint.kz"
-                className="flex items-center gap-2 hover:text-white transition-colors"
-              >
-                <Mail size={14} />
-                info@teamprint.kz
               </a>
               <span className="flex items-start gap-2">
                 <MapPin size={14} className="mt-0.5 shrink-0" />
