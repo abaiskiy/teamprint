@@ -9,7 +9,7 @@ import { WA_HREF } from "@/lib/contacts";
 
 const trust = [
   { icon: Zap, label: "Срок от 1 дня" },
-  { icon: Shield, label: "Гарантия на печать 10 лет" },
+  { icon: Shield, label: "Гарантия качества" },
   { icon: Clock, label: "1200+ выполненных заказов" },
 ];
 
@@ -38,9 +38,9 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-4 text-base lg:text-lg text-muted-text leading-relaxed max-w-md">
-              Сублимационная печать от 1 штуки. Флаги, пресс-воллы,
-              скатерти, виндеры — срок от{" "}
-              <span className="text-ink font-semibold">1 дня</span>.
+              Флаги, пресс-воллы, скатерти, виндеры — сублимационная
+              печать{" "}
+              <span className="text-ink font-semibold">от 1 штуки</span>.
             </p>
 
             {/* Trust pills */}
