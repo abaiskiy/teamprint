@@ -13,7 +13,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { organizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "TeamPrint — флаги и брендированный текстиль в Алматы",
+  title: { absolute: "TeamPrint — флаги и брендированный текстиль в Алматы" },
   description:
     "Флаги на заказ, пресс-воллы, виндеры, скатерти и декоративный текстиль с сублимационной печатью. Собственный цех в Алматы. Срок от 1 дня. 1200+ клиентов.",
   alternates: { canonical: "https://teamprint.kz" },
