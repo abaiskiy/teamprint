@@ -29,12 +29,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <link
-        rel="preload"
-        as="image"
-        href="/images/flags/flag-3.jpg"
-        fetchPriority="high"
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

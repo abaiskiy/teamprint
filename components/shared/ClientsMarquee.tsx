@@ -30,7 +30,7 @@ export function ClientsMarquee({ dark = false }: { dark?: boolean }) {
                 src={client.logo}
                 alt={client.name}
                 fill
-                priority={i < 6}
+                loading="lazy"
                 className="object-contain opacity-60 hover:opacity-90 transition-opacity grayscale hover:grayscale-0"
                 sizes="144px"
               />
