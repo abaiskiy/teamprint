@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { LeadForm } from "@/components/shared/LeadForm";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, ExternalLink } from "lucide-react";
+import { Phone, MapPin, Clock, MessageCircle, ExternalLink } from "lucide-react";
 import { GOOGLE_MAPS_URL, GISMAP_URL } from "@/lib/contacts";
 
 export const metadata: Metadata = buildMetadata({
@@ -24,19 +24,6 @@ const contacts = [
     value: "Написать в WhatsApp",
     href: `https://wa.me/77071451388?text=${encodeURIComponent("Здравствуйте! Пишу с сайта teamprint.kz — хочу узнать стоимость и сроки.")}`,
     external: true,
-  },
-  {
-    icon: Send,
-    label: "Telegram",
-    value: "@teamprint_kz",
-    href: "https://t.me/teamprint_kz",
-    external: true,
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@teamprint.kz",
-    href: "mailto:info@teamprint.kz",
   },
   {
     icon: MapPin,
