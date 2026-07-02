@@ -167,4 +167,13 @@
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
+
+  @keyframes hero-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-hero-in {
+    animation: hero-in 0.5s ease-out both;
+  }
 }

@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, Shield, Zap, MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
 import { ClientsMarquee } from "@/components/shared/ClientsMarquee";
 import { WA_HREF } from "@/lib/contacts";
 
@@ -21,12 +18,7 @@ export function HeroSection() {
 
         {/* Left — light text panel */}
         <div className="bg-canvas flex items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="px-6 py-16 lg:py-20 lg:pl-[max(2rem,calc((100vw-1280px)/2+2rem))] lg:pr-14 w-full"
-          >
+          <div className="animate-hero-in px-6 py-16 lg:py-20 lg:pl-[max(2rem,calc((100vw-1280px)/2+2rem))] lg:pr-14 w-full">
             {/* Label */}
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand mb-4 bg-brand/8 border border-brand/20 rounded-full px-3 py-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse shrink-0" />
@@ -76,27 +68,23 @@ export function HeroSection() {
               </a>
             </div>
 
-          </motion.div>
+          </div>
         </div>
 
-        {/* Right — photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="relative min-h-[320px] lg:min-h-0"
-        >
+        {/* Right — photo (no animation wrapper so image is LCP-visible immediately) */}
+        <div className="relative min-h-[320px] lg:min-h-0">
           <Image
             src="/images/flags/flag-3.jpg"
             alt="Флаг AS Development — сублимационная печать TeamPrint"
             fill
             priority
+            fetchPriority="high"
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 48vw"
           />
           {/* Subtle left fade to blend with text panel */}
           <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-canvas to-transparent pointer-events-none" />
-        </motion.div>
+        </div>
       </div>
 
       {/* Client logos */}
