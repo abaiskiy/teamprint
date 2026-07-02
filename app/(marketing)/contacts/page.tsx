@@ -58,11 +58,11 @@ export default function ContactsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Left: contacts + map */}
             <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 items-stretch">
                 {contacts.map((c) => {
                   const Icon = c.icon;
                   const content = (
-                    <div className="flex items-start gap-3 p-4 border border-line rounded-xl bg-white">
+                    <div className="flex items-start gap-3 p-4 border border-line rounded-xl bg-white h-full">
                       <div className="w-9 h-9 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
                         <Icon size={16} className="text-brand" />
                       </div>
@@ -79,12 +79,12 @@ export default function ContactsPage() {
                       href={c.href}
                       target={c.external ? "_blank" : undefined}
                       rel={c.external ? "noopener noreferrer" : undefined}
-                      className="hover:scale-[1.01] transition-transform"
+                      className="hover:scale-[1.01] transition-transform flex"
                     >
                       {content}
                     </a>
                   ) : (
-                    <div key={c.label}>{content}</div>
+                    <div key={c.label} className="flex">{content}</div>
                   );
                 })}
               </div>
