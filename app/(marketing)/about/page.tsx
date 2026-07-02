@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { CTASection } from "@/components/sections/CTASection";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 export const metadata: Metadata = buildMetadata({
   title: "О компании TeamPrint — производство в Алматы",
@@ -75,12 +76,14 @@ export default function AboutPage() {
       <section className="bg-white section-padding">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Photo placeholder */}
-            <div className="aspect-[4/3] rounded-2xl bg-line flex items-center justify-center text-muted-text/40 order-2 lg:order-1">
-              <div className="text-center">
-                <p className="text-sm">Команда</p>
-                <p className="text-xs mt-1">/public/images/products/team.jpg</p>
-              </div>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden order-2 lg:order-1">
+              <Image
+                src="/images/team.jpg"
+                alt="Команда TeamPrint — сублимационная печать в Алматы"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
             <div className="order-1 lg:order-2">
               <h2 className="font-heading text-ink mb-5">Как мы начинали</h2>
