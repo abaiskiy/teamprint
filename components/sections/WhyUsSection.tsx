@@ -63,7 +63,7 @@ export function WhyUsSection() {
           </p>
           <h2 className="font-heading text-ink">Почему выбирают TeamPrint</h2>
           <p className="mt-3 text-muted-text max-w-lg">
-            Собственный цех и 3 года опыта дают нам конкретные преимущества перед посредниками.
+            Собственный цех и 4 года опыта дают нам конкретные преимущества перед посредниками.
           </p>
         </div>
 
