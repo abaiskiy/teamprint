@@ -176,4 +176,19 @@
   .animate-hero-in {
     animation: hero-in 0.5s ease-out both;
   }
+
+  /* FadeIn component — uses CSS classes instead of inline styles to avoid forced reflow */
+  .fade-in-up,
+  .fade-in-left {
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .fade-in-up { transform: translateY(20px); }
+  .fade-in-left { transform: translateX(-16px); }
+
+  .fade-in-up.fade-in-visible,
+  .fade-in-left.fade-in-visible {
+    opacity: 1;
+    transform: none;
+  }
 }

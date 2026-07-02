@@ -23,10 +23,12 @@ export function FadeIn({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          // Batch state updates using requestAnimationFrame to avoid forced reflow
+          requestAnimationFrame(() => setVisible(true));
           observer.disconnect();
         }
       },
@@ -36,21 +38,15 @@ export function FadeIn({
     return () => observer.disconnect();
   }, [margin]);
 
-  const translate =
-    direction === "up" ? "translateY(20px)" :
-    direction === "left" ? "translateX(-16px)" :
-    "none";
+  const dirClass =
+    direction === "up" ? "fade-in-up" :
+    direction === "left" ? "fade-in-left" : "";
 
   return (
     <div
       ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "none" : translate,
-        transition: `opacity 0.4s ease ${delay}s, transform 0.4s ease ${delay}s`,
-        willChange: "opacity, transform",
-      }}
+      className={`${dirClass} ${visible ? "fade-in-visible" : ""} ${className}`}
+      style={delay > 0 ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
     </div>
