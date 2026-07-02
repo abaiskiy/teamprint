@@ -1,9 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 const featuredCases = [
   {
@@ -59,14 +57,7 @@ export function CasesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
           {featuredCases.map((c, i) => (
-            <motion.div
-              key={c.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="h-full"
-            >
+            <FadeIn key={c.slug} delay={i * 0.1} margin="-50px" className="h-full">
               <Link
                 href={`/cases/${c.slug}`}
                 className="group flex flex-col h-full border border-line rounded-xl overflow-hidden bg-white hover:-translate-y-0.5 transition-transform duration-200"
@@ -105,7 +96,7 @@ export function CasesSection() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

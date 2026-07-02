@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight, Calendar, Dumbbell, Briefcase } from "lucide-react";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 const segments = [
   {
@@ -58,14 +56,7 @@ export function SegmentsSection() {
           {segments.map((seg, i) => {
             const Icon = seg.icon;
             return (
-              <motion.div
-                key={seg.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className={`rounded-xl border p-6 ${seg.accent} flex flex-col`}
-              >
+              <FadeIn key={seg.title} delay={i * 0.1} margin="-50px" className={`rounded-xl border p-6 ${seg.accent} flex flex-col`}>
                 <div className={`w-10 h-10 flex items-center justify-center mb-4 ${seg.iconColor}`}>
                   <Icon size={22} strokeWidth={1.5} />
                 </div>
@@ -87,7 +78,7 @@ export function SegmentsSection() {
                 >
                   Смотреть кейсы <ArrowRight size={14} />
                 </Link>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

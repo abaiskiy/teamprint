@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 import {
   Factory,
   Shield,
@@ -73,14 +71,7 @@ export function WhyUsSection() {
           {advantages.map((adv, i) => {
             const Icon = adv.icon;
             return (
-              <motion.div
-                key={adv.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.35, delay: i * 0.06 }}
-                className="flex flex-col"
-              >
+              <FadeIn key={adv.title} delay={i * 0.06} margin="-30px" className="flex flex-col">
                 <div className="w-9 h-9 text-brand mb-3">
                   <Icon size={22} strokeWidth={1.5} />
                 </div>
@@ -90,7 +81,7 @@ export function WhyUsSection() {
                 <p className="mt-1.5 text-sm text-muted-text leading-relaxed">
                   {adv.description}
                 </p>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

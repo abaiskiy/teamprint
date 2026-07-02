@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 import { MessageSquare, Palette, CheckSquare, Printer, Layers, PackageCheck } from "lucide-react";
 
 const steps = [
@@ -65,14 +63,7 @@ export function ProcessSection() {
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex flex-col"
-                >
+                <FadeIn key={step.number} delay={i * 0.08} className="flex flex-col">
                   {/* Step dot */}
                   <div className="relative z-10 w-10 h-10 rounded-full bg-white border-2 border-brand flex items-center justify-center mb-4 text-brand shrink-0">
                     <Icon size={16} strokeWidth={2} />
@@ -83,7 +74,7 @@ export function ProcessSection() {
                     {step.title}
                   </h3>
                   <p className="text-xs text-muted-text leading-relaxed">{step.description}</p>
-                </motion.div>
+                </FadeIn>
               );
             })}
           </div>
@@ -94,14 +85,7 @@ export function ProcessSection() {
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="flex gap-4"
-              >
+              <FadeIn key={step.number} delay={i * 0.06} direction="left" className="flex gap-4">
                 <div className="flex flex-col items-center">
                   <div className="w-10 h-10 rounded-full bg-white border-2 border-brand flex items-center justify-center text-brand shrink-0">
                     <Icon size={16} strokeWidth={2} />
@@ -115,7 +99,7 @@ export function ProcessSection() {
                   <h3 className="font-heading font-semibold text-sm text-ink mt-0.5">{step.title}</h3>
                   <p className="text-xs text-muted-text mt-1 leading-relaxed">{step.description}</p>
                 </div>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

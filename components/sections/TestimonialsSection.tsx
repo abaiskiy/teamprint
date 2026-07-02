@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 import { Star, ExternalLink } from "lucide-react";
 import { testimonials } from "@/content/testimonials";
 import { GOOGLE_MAPS_URL, GISMAP_URL } from "@/lib/contacts";
@@ -65,12 +63,10 @@ export function TestimonialsSection() {
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {testimonials.map((t, i) => (
-            <motion.div
+            <FadeIn
               key={t.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              delay={i * 0.08}
+              margin="-30px"
               className="relative bg-white/5 border border-white/8 rounded-2xl p-6 flex flex-col overflow-hidden group hover:bg-white/8 transition-colors"
             >
               {/* Decorative quote */}
@@ -100,7 +96,7 @@ export function TestimonialsSection() {
                   {t.company}
                 </span>
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

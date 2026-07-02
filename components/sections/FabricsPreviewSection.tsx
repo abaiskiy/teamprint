@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 import { fabrics } from "@/content/fabrics";
 
 export function FabricsPreviewSection() {
@@ -32,12 +32,10 @@ export function FabricsPreviewSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {preview.map((fabric, i) => (
-            <motion.div
+            <FadeIn
               key={fabric.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.35, delay: i * 0.06 }}
+              delay={i * 0.06}
+              margin="-30px"
               className="border border-line rounded-xl p-5 bg-white hover:-translate-y-0.5 transition-transform duration-200"
             >
               <div className="relative aspect-[3/2] rounded-lg overflow-hidden bg-line mb-4">
@@ -61,7 +59,7 @@ export function FabricsPreviewSection() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

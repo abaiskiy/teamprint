@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView, motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 const metrics = [
   { num: 4, suffix: "", unit: "года", label: "на рынке Казахстана" },
@@ -14,20 +14,34 @@ const metrics = [
 function CountUp({ to, duration = 1.4 }: { to: number; duration?: number }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const started = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
-    const startTime = performance.now();
-    const step = (now: number) => {
-      const elapsed = (now - startTime) / 1000;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * to));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [inView, to, duration]);
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const startTime = performance.now();
+          const step = (now: number) => {
+            const elapsed = (now - startTime) / 1000;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.round(eased * to));
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "-40px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [to, duration]);
 
   return <span ref={ref}>{count}</span>;
 }
@@ -38,12 +52,9 @@ export function MetricsSection() {
       <div className="container-site py-10 lg:py-14">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
           {metrics.map((m, i) => (
-            <motion.div
+            <FadeIn
               key={m.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              delay={i * 0.08}
               className="lg:px-6 first:pl-0 last:pr-0"
             >
               <p className="font-heading font-bold text-3xl lg:text-4xl text-white tabular-nums">
@@ -56,7 +67,7 @@ export function MetricsSection() {
                 )}
               </p>
               <p className="mt-1.5 text-sm text-white/60 leading-tight">{m.label}</p>
-            </motion.div>
+            </FadeIn>
           ))}
         </div>
       </div>

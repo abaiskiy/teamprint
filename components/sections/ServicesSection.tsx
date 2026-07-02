@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight, Flag, Shirt, Trophy, Building2, Sofa } from "lucide-react";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 const services = [
   {
@@ -62,13 +60,7 @@ export function ServicesSection() {
           {services.map((svc, i) => {
             const Icon = svc.icon;
             return (
-              <motion.div
-                key={svc.href}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-              >
+              <FadeIn key={svc.href} delay={i * 0.07} margin="-50px">
                 <Link
                   href={svc.href}
                   className="group flex flex-col h-full border border-line rounded-xl p-6 bg-white hover:-translate-y-0.5 transition-transform duration-200"
@@ -96,18 +88,12 @@ export function ServicesSection() {
                     Подробнее <ArrowRight size={14} />
                   </div>
                 </Link>
-              </motion.div>
+              </FadeIn>
             );
           })}
 
           {/* CTA card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.35 }}
-            className="border border-dashed border-line rounded-xl p-6 flex flex-col items-start justify-center"
-          >
+          <FadeIn delay={0.35} className="border border-dashed border-line rounded-xl p-6 flex flex-col items-start justify-center">
             <p className="text-muted-text text-sm leading-relaxed">
               Не нашли свою задачу? Свяжитесь с нами — найдём решение.
             </p>
@@ -117,7 +103,7 @@ export function ServicesSection() {
             >
               Написать <ArrowRight size={14} />
             </Link>
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>
