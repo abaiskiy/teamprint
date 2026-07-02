@@ -61,12 +61,14 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Photo placeholder */}
-            <div className="aspect-[4/3] rounded-2xl bg-line flex items-center justify-center text-muted-text/40">
-              <div className="text-center">
-                <p className="text-sm">Фото цеха</p>
-                <p className="text-xs mt-1">/public/images/products/workshop.jpg</p>
-              </div>
+            <div className="relative aspect-[2/1] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/workshop.jpg"
+                alt="Цех TeamPrint — сублимационная печать и пошив в Алматы"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
