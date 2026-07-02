@@ -7,6 +7,7 @@ import { z } from "zod";
 import { Loader2, CheckCircle2, MessageCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { WA_HREF, PHONE_NUMBER } from "@/lib/contacts";
+import { reachGoal } from "@/lib/analytics";
 
 const schema = z.object({
   name: z.string().min(2, "Укажите имя"),
@@ -43,6 +44,7 @@ export function LeadForm({ source = "unknown", calculatorData, variant = "defaul
       });
       if (res.ok) {
         setStatus("success");
+        reachGoal("lead_submitted");
         reset();
       } else {
         setStatus("error");

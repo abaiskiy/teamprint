@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { PHONE_HREF, PHONE_NUMBER } from "@/lib/contacts";
+import { reachGoal } from "@/lib/analytics";
 
 const navLinks = [
   {
