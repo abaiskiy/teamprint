@@ -49,7 +49,7 @@ export function SegmentsSection() {
             Решения
           </p>
           <h2 className="font-heading text-ink">Решения для вашей задачи</h2>
-          <p className="mt-3 text-muted-text">
+          <p className="mt-4 text-muted-text text-lg">
             Разный бизнес — разные задачи. Мы знаем, как работать с каждым сегментом.
           </p>
         </div>

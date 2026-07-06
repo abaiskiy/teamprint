@@ -38,7 +38,7 @@ export function WhyUsSection() {
             Преимущества
           </p>
           <h2 className="font-heading text-ink">Почему выбирают TeamPrint</h2>
-          <p className="mt-3 text-muted-text max-w-lg">
+          <p className="mt-4 text-muted-text text-lg max-w-lg">
             Собственный цех и 4 года опыта дают нам конкретные преимущества перед посредниками.
           </p>
         </div>
@@ -55,7 +55,7 @@ export function WhyUsSection() {
                   <h3 className="font-heading font-semibold text-base text-ink leading-snug">
                     {adv.title}
                   </h3>
-                  <p className="mt-1 text-sm text-muted-text leading-relaxed">
+                  <p className="mt-1.5 text-base text-muted-text leading-relaxed">
                     {adv.description}
                   </p>
                 </div>

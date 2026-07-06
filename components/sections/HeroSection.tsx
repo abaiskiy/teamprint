@@ -18,7 +18,7 @@ export function HeroSection() {
 
         {/* Background image */}
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero-bg-new.jpg"
           alt="Сублимационная печать на ткани — производство TeamPrint в Алматы"
           fill
           priority
@@ -38,11 +38,11 @@ export function HeroSection() {
               Производство в Алматы · с 2022 года
             </p>
 
-            <h1 className="font-heading text-white max-w-2xl">
+            <h1 className="font-heading text-white max-w-2xl leading-none">
               Печатаем.<br />Шьём.<br />Производим.
             </h1>
 
-            <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-md">
+            <p className="mt-6 text-lg lg:text-xl text-white/75 leading-relaxed max-w-lg">
               Флаги, пресс-воллы, скатерти, виндеры — сублимационная
               печать{" "}
               <span className="text-white font-semibold">от 1 штуки</span>.

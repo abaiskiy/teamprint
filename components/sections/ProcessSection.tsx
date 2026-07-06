@@ -49,7 +49,7 @@ export function ProcessSection() {
             Процесс
           </p>
           <h2 className="font-heading text-ink">Как мы работаем</h2>
-          <p className="mt-3 text-muted-text max-w-lg">
+          <p className="mt-4 text-muted-text text-lg max-w-lg">
             Простой и прозрачный процесс — от заявки до получения готового изделия.
           </p>
         </div>

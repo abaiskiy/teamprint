@@ -17,7 +17,7 @@ export function FAQSection() {
               FAQ
             </p>
             <h2 className="font-heading text-ink">Частые вопросы</h2>
-            <p className="mt-3 text-muted-text leading-relaxed">
+            <p className="mt-4 text-muted-text text-lg leading-relaxed">
               Если не нашли ответ — звоните или пишите, ответим в течение 15 минут.
             </p>
             <Link

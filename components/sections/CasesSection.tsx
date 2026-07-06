@@ -43,7 +43,7 @@ export function CasesSection() {
               Кейсы
             </p>
             <h2 className="font-heading text-ink">Наши работы</h2>
-            <p className="mt-3 text-muted-text max-w-md">
+            <p className="mt-4 text-muted-text text-lg max-w-md">
               Реальные проекты с реальными цифрами — не стоковые фото.
             </p>
           </div>
