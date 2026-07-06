@@ -60,7 +60,7 @@ export function CasesSection() {
             <FadeIn key={c.slug} delay={i * 0.1} margin="-50px" className="h-full">
               <Link
                 href={`/cases/${c.slug}`}
-                className="group flex flex-col h-full border border-line rounded-xl overflow-hidden bg-white hover:-translate-y-0.5 transition-transform duration-200"
+                className="group flex flex-col h-full border border-line rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 {/* Image */}
                 <div className="aspect-[16/10] bg-line relative overflow-hidden">

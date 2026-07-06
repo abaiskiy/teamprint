@@ -63,7 +63,7 @@ export function ServicesSection() {
               <FadeIn key={svc.href} delay={i * 0.07} margin="-50px">
                 <Link
                   href={svc.href}
-                  className="group flex flex-col h-full border border-line rounded-xl p-6 bg-white hover:-translate-y-0.5 transition-transform duration-200"
+                  className="group flex flex-col h-full border border-line rounded-xl p-6 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <div className="w-10 h-10 flex items-center justify-center text-brand mb-4">
                     <Icon size={24} strokeWidth={1.5} />

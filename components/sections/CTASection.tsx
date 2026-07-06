@@ -14,7 +14,7 @@ export function CTASection({
   subheading = "Расскажите, что нужно сделать: тип продукции, количество, срок. Мы предложим оптимальное решение и пришлём расчёт.",
 }: CTASectionProps) {
   return (
-    <section className="bg-canvas section-padding">
+    <section className="bg-ink section-padding">
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left */}
@@ -22,10 +22,10 @@ export function CTASection({
             <p className="text-xs font-semibold uppercase tracking-widest text-brand mb-3">
               Контакт
             </p>
-            <h2 className="font-heading text-ink">
+            <h2 className="font-heading text-white">
               {heading}
             </h2>
-            <p className="mt-4 text-muted-text leading-relaxed">
+            <p className="mt-4 text-white/60 leading-relaxed">
               {subheading}
             </p>
 
@@ -45,20 +45,20 @@ export function CTASection({
 
               <a
                 href={PHONE_HREF}
-                className="flex items-center gap-3 border border-line bg-white hover:border-ink/30 text-ink font-semibold px-5 py-3.5 rounded-xl transition-colors w-full"
+                className="flex items-center gap-3 border border-white/20 bg-white/8 hover:bg-white/12 text-white font-semibold px-5 py-3.5 rounded-xl transition-colors w-full"
               >
                 <Phone size={20} className="shrink-0" />
                 <div>
                   <p className="text-sm font-semibold">{PHONE_NUMBER}</p>
-                  <p className="text-xs text-muted-text">Пн–Пт, 9:00–18:00</p>
+                  <p className="text-xs text-white/50">Пн–Пт, 9:00–18:00</p>
                 </div>
               </a>
             </div>
           </div>
 
           {/* Right: form */}
-          <div className="bg-white border border-line rounded-2xl p-6 lg:p-8">
-            <h3 className="font-heading font-semibold text-lg text-ink mb-6">
+          <div className="bg-white/6 border border-white/10 rounded-2xl p-6 lg:p-8 [&_label]:text-white/80 [&_label]:font-normal">
+            <h3 className="font-heading font-semibold text-lg text-white mb-6">
               Оставить заявку
             </h3>
             <LeadForm source={source} />

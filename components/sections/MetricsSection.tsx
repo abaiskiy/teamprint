@@ -57,16 +57,14 @@ export function MetricsSection() {
               delay={i * 0.08}
               className="lg:px-6 first:pl-0 last:pr-0"
             >
-              <p className="font-heading font-bold text-3xl lg:text-4xl text-white tabular-nums">
+              <p className="font-heading font-bold text-4xl lg:text-5xl text-brand tabular-nums">
                 <CountUp to={m.num} duration={1.2 + i * 0.1} />
-                {m.suffix && (
-                  <span className="text-brand">{m.suffix}</span>
-                )}
+                {m.suffix && <span>{m.suffix}</span>}
                 {m.unit && (
-                  <span className="text-xl lg:text-2xl text-brand ml-1">{m.unit}</span>
+                  <span className="text-2xl lg:text-3xl ml-1">{m.unit}</span>
                 )}
               </p>
-              <p className="mt-1.5 text-sm text-white/60 leading-tight">{m.label}</p>
+              <p className="mt-2 text-sm text-white/60 leading-tight">{m.label}</p>
             </FadeIn>
           ))}
         </div>
