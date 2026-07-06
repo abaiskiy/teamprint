@@ -30,19 +30,19 @@ export function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-canvas border-b border-line">
+    <header className="sticky top-0 z-50 bg-ink border-b border-white/10">
       <div className="container-site">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="/"
-            className="shrink-0 font-heading font-bold text-xl text-ink"
+            className="shrink-0 font-heading font-bold text-xl text-white"
           >
             <span className="text-brand">Team</span>Print
           </Link>
 
           {/* Desktop nav — visible from xl (1280px) */}
-          <nav className="hidden xl:flex items-center gap-5 text-sm font-medium text-ink">
+          <nav className="hidden xl:flex items-center gap-5 text-sm font-medium text-white/80">
             {navLinks.map((link) =>
               link.children ? (
                 <div
@@ -51,17 +51,17 @@ export function Header() {
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
-                  <button className="flex items-center gap-1 py-2 text-ink hover:text-brand transition-colors whitespace-nowrap">
+                  <button className="flex items-center gap-1 py-2 text-white/80 hover:text-brand transition-colors whitespace-nowrap">
                     {link.label}
                     <ChevronDown size={13} className="mt-0.5 opacity-60" />
                   </button>
                   {servicesOpen && (
-                    <div className="absolute top-full left-0 w-60 bg-white border border-line rounded-xl shadow-md py-1.5 mt-1">
+                    <div className="absolute top-full left-0 w-60 bg-ink border border-white/10 rounded-xl shadow-xl py-1.5 mt-1">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-ink hover:text-brand hover:bg-canvas transition-colors"
+                          className="block px-4 py-2.5 text-sm text-white/80 hover:text-brand hover:bg-canvas transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -73,7 +73,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="py-2 hover:text-brand transition-colors whitespace-nowrap"
+                  className="py-2 text-white/80 hover:text-brand transition-colors whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
@@ -85,7 +85,7 @@ export function Header() {
           <div className="hidden xl:flex items-center gap-3 shrink-0">
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-1.5 text-sm font-medium text-ink hover:text-brand transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-brand transition-colors whitespace-nowrap"
             >
               <Phone size={14} />
               {PHONE_NUMBER}
@@ -99,7 +99,7 @@ export function Header() {
           </div>
 
           {/* Mid-size nav (lg–xl): compact links */}
-          <nav className="hidden lg:flex xl:hidden items-center gap-4 text-sm font-medium text-ink">
+          <nav className="hidden lg:flex xl:hidden items-center gap-4 text-sm font-medium text-white/80">
             <Link href="/flags" className="hover:text-brand transition-colors whitespace-nowrap">Флаги</Link>
             <Link href="/cases" className="hover:text-brand transition-colors whitespace-nowrap">Кейсы</Link>
             <Link href="/fabrics" className="hover:text-brand transition-colors whitespace-nowrap">Ткани</Link>
@@ -111,7 +111,7 @@ export function Header() {
           <div className="hidden lg:flex xl:hidden items-center gap-3 shrink-0">
             <a
               href={PHONE_HREF}
-              className="flex items-center gap-1.5 text-sm font-medium text-ink hover:text-brand transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-brand transition-colors whitespace-nowrap"
             >
               <Phone size={14} />
               {PHONE_NUMBER}
@@ -126,7 +126,7 @@ export function Header() {
 
           {/* Mobile hamburger — visible below lg */}
           <button
-            className="lg:hidden p-2 -mr-1 text-ink"
+            className="lg:hidden p-2 -mr-1 text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Меню"
           >
@@ -136,18 +136,18 @@ export function Header() {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <nav className="lg:hidden border-t border-line py-4 flex flex-col gap-0.5">
+          <nav className="lg:hidden border-t border-white/10 py-4 flex flex-col gap-0.5">
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.label}>
-                  <p className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-muted-text">
+                  <p className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-white/40">
                     {link.label}
                   </p>
                   {link.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block px-5 py-2 text-sm text-ink hover:text-brand transition-colors"
+                      className="block px-5 py-2 text-sm text-white/80 hover:text-brand transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {child.label}
@@ -158,7 +158,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block px-3 py-2.5 text-sm font-medium text-ink hover:text-brand transition-colors"
+                  className="block px-3 py-2.5 text-sm font-medium text-white/80 hover:text-brand transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -166,10 +166,10 @@ export function Header() {
               )
             )}
 
-            <div className="pt-4 mt-2 border-t border-line flex flex-col gap-2 px-3">
+            <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-2 px-3">
               <a
                 href={PHONE_HREF}
-                className="flex items-center gap-2 py-1 text-sm font-medium text-ink"
+                className="flex items-center gap-2 py-1 text-sm font-medium text-white/80"
               >
                 <Phone size={15} />
                 {PHONE_NUMBER}

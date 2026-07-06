@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { MetricsSection } from "@/components/sections/MetricsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SegmentsSection } from "@/components/sections/SegmentsSection";
 import { CasesSection } from "@/components/sections/CasesSection";
@@ -9,6 +8,7 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { ClientsMarquee } from "@/components/shared/ClientsMarquee";
 import { organizationSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -33,13 +33,15 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <HeroSection />
-      <MetricsSection />
       <ServicesSection />
-      <SegmentsSection />
-      <CasesSection />
       <WhyUsSection />
-      <ProcessSection />
+      <SegmentsSection />
+      <div className="bg-white border-t border-b border-line py-7">
+        <ClientsMarquee />
+      </div>
+      <CasesSection />
       <TestimonialsSection />
+      <ProcessSection />
       <FAQSection />
       <CTASection source="home-cta" />
     </>

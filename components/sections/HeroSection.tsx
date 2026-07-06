@@ -1,38 +1,51 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Clock, Shield, Zap, MessageCircle } from "lucide-react";
-import { ClientsMarquee } from "@/components/shared/ClientsMarquee";
+import { ArrowRight, Clock, Shield, Zap, MessageCircle, Users } from "lucide-react";
 import { WA_HREF } from "@/lib/contacts";
 
 const trust = [
+  { icon: Clock, label: "4 года на рынке" },
+  { icon: Users, label: "1200+ клиентов" },
   { icon: Zap, label: "Срок от 1 дня" },
-  { icon: Shield, label: "Гарантия качества" },
-  { icon: Clock, label: "1200+ выполненных заказов" },
+  { icon: Shield, label: "Гарантия 10 лет" },
 ];
 
 export function HeroSection() {
   return (
     <section className="overflow-hidden">
-      {/* Main hero */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_48%] min-h-[520px] lg:min-h-[600px]">
+      {/* Full-width hero with image background */}
+      <div className="relative min-h-[560px] lg:min-h-[680px] flex items-center">
 
-        {/* Left — light text panel */}
-        <div className="bg-canvas flex items-center">
-          <div className="animate-hero-in px-6 py-16 lg:py-20 lg:pl-[max(2rem,calc((100vw-1280px)/2+2rem))] lg:pr-14 w-full">
-            {/* Label */}
-            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand mb-4 bg-brand/8 border border-brand/20 rounded-full px-3 py-1.5">
+        {/* Background image */}
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Сублимационная печать на ткани — производство TeamPrint в Алматы"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/20 pointer-events-none" />
+
+        {/* Content */}
+        <div className="relative z-10 w-full">
+          <div className="animate-hero-in container-site py-20 lg:py-28">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand mb-6 bg-brand/15 border border-brand/30 rounded-full px-3 py-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse shrink-0" />
               Производство в Алматы · с 2022 года
             </p>
 
-            <h1 className="font-heading text-ink">
-              Напечатаем флаги и текстиль с вашим брендом
+            <h1 className="font-heading text-white max-w-2xl">
+              Печатаем.<br />Шьём.<br />Производим.
             </h1>
 
-            <p className="mt-4 text-base lg:text-lg text-muted-text leading-relaxed max-w-md">
+            <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-md">
               Флаги, пресс-воллы, скатерти, виндеры — сублимационная
               печать{" "}
-              <span className="text-ink font-semibold">от 1 штуки</span>.
+              <span className="text-white font-semibold">от 1 штуки</span>.
             </p>
 
             {/* Trust pills */}
@@ -40,7 +53,7 @@ export function HeroSection() {
               {trust.map(({ icon: Icon, label }) => (
                 <span
                   key={label}
-                  className="inline-flex items-center gap-1.5 text-xs text-ink/60 bg-white border border-line rounded-full px-3 py-1.5 font-medium"
+                  className="inline-flex items-center gap-1.5 text-xs text-white/80 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 font-medium backdrop-blur-sm"
                 >
                   <Icon size={12} className="text-brand" />
                   {label}
@@ -49,10 +62,10 @@ export function HeroSection() {
             </div>
 
             {/* CTA buttons */}
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contacts"
-                className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3.5 rounded-lg transition-colors text-sm shadow-sm"
+                className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-7 py-4 rounded-lg transition-colors text-sm shadow-lg"
               >
                 Получить расчёт
                 <ArrowRight size={16} />
@@ -61,36 +74,16 @@ export function HeroSection() {
                 href={WA_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-line hover:border-ink/30 text-ink font-semibold px-6 py-3.5 rounded-lg transition-colors text-sm bg-white"
+                className="inline-flex items-center gap-2 border border-white/30 hover:border-white/60 text-white font-semibold px-7 py-4 rounded-lg transition-colors text-sm bg-white/10 backdrop-blur-sm"
               >
                 <MessageCircle size={16} className="text-[#25D366]" />
                 WhatsApp
               </a>
             </div>
-
           </div>
         </div>
-
-        {/* Right — photo (no animation wrapper so image is LCP-visible immediately) */}
-        <div className="relative min-h-[320px] lg:min-h-0">
-          <Image
-            src="/images/flags/flag-3.jpg"
-            alt="Флаг AS Development — сублимационная печать TeamPrint"
-            fill
-            priority
-            fetchPriority="high"
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 48vw"
-          />
-          {/* Subtle left fade to blend with text panel */}
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-canvas to-transparent pointer-events-none" />
-        </div>
       </div>
 
-      {/* Client logos */}
-      <div className="bg-white border-t border-b border-line py-7">
-        <ClientsMarquee />
-      </div>
     </section>
   );
 }
