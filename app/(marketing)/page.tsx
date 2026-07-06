@@ -7,7 +7,6 @@ import { CasesSection } from "@/components/sections/CasesSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { FabricsPreviewSection } from "@/components/sections/FabricsPreviewSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { CTASection } from "@/components/sections/CTASection";
 import { organizationSchema } from "@/lib/seo";
@@ -41,7 +40,6 @@ export default function HomePage() {
       <WhyUsSection />
       <ProcessSection />
       <TestimonialsSection />
-      <FabricsPreviewSection />
       <FAQSection />
       <CTASection source="home-cta" />
     </>

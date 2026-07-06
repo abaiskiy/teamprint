@@ -1,40 +1,42 @@
-import Link from "next/link";
-import { ArrowRight, Calendar, Dumbbell, Briefcase } from "lucide-react";
+import { UtensilsCrossed, ShoppingBag, Megaphone, Car } from "lucide-react";
 import { FadeIn } from "@/components/shared/FadeIn";
 
 const segments = [
   {
-    icon: Calendar,
-    title: "Event-агентства и организаторы",
+    icon: UtensilsCrossed,
+    title: "Рестораны и кафе",
     description:
-      "Быстро закрываем потребность в текстильном оформлении мероприятий любого масштаба. Скатерти, пресс-воллы, флаги, арки — за 3–7 дней.",
-    caseTitle: "Forum Almaty 2024",
-    caseResult: "200 скатертей + пресс-волл за 5 дней",
-    href: "/cases",
+      "Подушки, скатерти, фартуки, худи и мерч для персонала — всё с вашим брендом. Пледы для летних террас.",
+    products: ["Скатерти", "Фартуки", "Мерч", "Пледы"],
     accent: "bg-amber-50 border-amber-200",
     iconColor: "text-amber-600",
   },
   {
-    icon: Dumbbell,
-    title: "Спортивные мероприятия",
+    icon: ShoppingBag,
+    title: "Торговые центры",
     description:
-      "Флаги финиша, виндеры, арки, баннеры и брендированная форма для марафонов, турниров и федераций.",
-    caseTitle: "Almaty Marathon 2024",
-    caseResult: "350 флагов и арка за 12 дней",
-    href: "/cases",
-    accent: "bg-blue-50 border-blue-200",
-    iconColor: "text-blue-600",
+      "Сезонные оформления: флаги, виндеры, текстильные подвесы, декор для детских зон и атриумов.",
+    products: ["Флаги", "Виндеры", "Подвесы", "Текстильный декор"],
+    accent: "bg-rose-50 border-rose-200",
+    iconColor: "text-rose-600",
   },
   {
-    icon: Briefcase,
-    title: "Корпоративный сектор и госкомпании",
+    icon: Megaphone,
+    title: "Ивент-агентства",
     description:
-      "Флаги с логотипом, форма персонала и бренд-текстиль для крупных организаций. Работаем по договору, НДС, безнал.",
-    caseTitle: "Самрук-Казына",
-    caseResult: "150 флагов ежегодно, договор ИП",
-    href: "/cases",
-    accent: "bg-slate-50 border-slate-200",
-    iconColor: "text-slate-600",
+      "Пресс-воллы, флаги, виндеры, брендированный мерч и текстильный декор для мероприятий любого масштаба.",
+    products: ["Пресс-воллы", "Флаги", "Мерч", "Декор"],
+    accent: "bg-violet-50 border-violet-200",
+    iconColor: "text-violet-600",
+  },
+  {
+    icon: Car,
+    title: "Авто, спорт и другие",
+    description:
+      "Флаги и виндеры для автосалонов, банты для машин, чехлы, форма для марафонов и корпоративных команд.",
+    products: ["Флаги", "Виндеры", "Банты", "Форма"],
+    accent: "bg-sky-50 border-sky-200",
+    iconColor: "text-sky-600",
   },
 ];
 
@@ -52,32 +54,25 @@ export function SegmentsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {segments.map((seg, i) => {
             const Icon = seg.icon;
             return (
-              <FadeIn key={seg.title} delay={i * 0.1} margin="-50px" className={`rounded-xl border p-6 ${seg.accent} flex flex-col`}>
-                <div className={`w-10 h-10 flex items-center justify-center mb-4 ${seg.iconColor}`}>
-                  <Icon size={22} strokeWidth={1.5} />
+              <FadeIn key={seg.title} delay={i * 0.08} margin="-50px" className={`rounded-xl border p-5 ${seg.accent} flex flex-col`}>
+                <div className={`w-9 h-9 flex items-center justify-center mb-3 ${seg.iconColor}`}>
+                  <Icon size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading font-semibold text-lg text-ink">{seg.title}</h3>
+                <h3 className="font-heading font-semibold text-base text-ink">{seg.title}</h3>
                 <p className="mt-2 text-sm text-muted-text leading-relaxed flex-1">
                   {seg.description}
                 </p>
-
-                {/* Mini case */}
-                <div className="mt-5 pt-4 border-t border-black/8">
-                  <p className="text-xs text-muted-text font-medium mb-1">Пример</p>
-                  <p className="text-sm font-semibold text-ink">{seg.caseTitle}</p>
-                  <p className="text-xs text-muted-text mt-0.5">{seg.caseResult}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {seg.products.map((p) => (
+                    <span key={p} className="text-xs bg-white/60 border border-black/8 rounded-full px-2.5 py-1 text-muted-text">
+                      {p}
+                    </span>
+                  ))}
                 </div>
-
-                <Link
-                  href={seg.href}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-brand transition-colors"
-                >
-                  Смотреть кейсы <ArrowRight size={14} />
-                </Link>
               </FadeIn>
             );
           })}

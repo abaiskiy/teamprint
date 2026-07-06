@@ -1,55 +1,31 @@
 import { FadeIn } from "@/components/shared/FadeIn";
-import {
-  Factory,
-  Shield,
-  Zap,
-  Package,
-  Palette,
-  FileText,
-  Truck,
-  User,
-} from "lucide-react";
+import { Factory, Shield, Zap, FileText, Truck } from "lucide-react";
 
 const advantages = [
   {
     icon: Factory,
-    title: "Собственное производство",
-    description: "Печать → каландр → пошив — всё в одном цехе в Алматы. Никаких посредников.",
-  },
-  {
-    icon: Shield,
-    title: "Гарантия 10 лет на печать",
-    description: "Сублимация вплавляется в волокна — краска не облезет и не выцветет.",
+    title: "Собственный цех",
+    description: "Печать, каландр и пошив под одной крышей — без посредников и задержек.",
   },
   {
     icon: Zap,
-    title: "Сроки от 1 рабочего дня",
-    description: "Срочные заказы без длинной очереди. Работаем оперативно.",
+    title: "Срок от 1 дня",
+    description: "Берёмся за срочные заказы. Стандартный тираж — 3–7 рабочих дней.",
   },
   {
-    icon: Package,
-    title: "Любые тиражи — от 1 до 10 000",
-    description: "Комфортно работаем как с единичными, так и с крупными заказами.",
-  },
-  {
-    icon: Palette,
-    title: "Помощь с дизайном",
-    description: "Подготовим и согласуем макет. Бесплатно при размещении заказа.",
+    icon: Shield,
+    title: "Гарантия 10 лет",
+    description: "Сублимация вплавляется в волокна — краска не облезет и не выцветет.",
   },
   {
     icon: FileText,
-    title: "Белая работа",
-    description: "Договор, счёт, ЭСФ, НДС. Отсрочка для постоянных партнёров.",
+    title: "Полный пакет документов",
+    description: "Договор, счёт, ЭСФ, НДС. Работаем с юрлицами и ИП.",
   },
   {
     icon: Truck,
-    title: "Доставка по всему Казахстану",
-    description: "Отправляем в любой город. Монтаж и установка в Алматы — наша команда.",
-  },
-  {
-    icon: User,
-    title: "Персональный менеджер",
-    description: "Один контакт на весь проект — от согласования до получения.",
+    title: "Доставка по Казахстану",
+    description: "Отправляем в любой город. Монтаж и установка — в Алматы.",
   },
 ];
 
@@ -67,20 +43,22 @@ export function WhyUsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {advantages.map((adv, i) => {
             const Icon = adv.icon;
             return (
-              <FadeIn key={adv.title} delay={i * 0.06} margin="-30px" className="flex flex-col">
-                <div className="w-9 h-9 text-brand mb-3">
-                  <Icon size={22} strokeWidth={1.5} />
+              <FadeIn key={adv.title} delay={i * 0.07} margin="-30px" className="flex flex-col gap-3">
+                <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0">
+                  <Icon size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading font-semibold text-base text-ink">
-                  {adv.title}
-                </h3>
-                <p className="mt-1.5 text-sm text-muted-text leading-relaxed">
-                  {adv.description}
-                </p>
+                <div>
+                  <h3 className="font-heading font-semibold text-base text-ink leading-snug">
+                    {adv.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-text leading-relaxed">
+                    {adv.description}
+                  </p>
+                </div>
               </FadeIn>
             );
           })}
