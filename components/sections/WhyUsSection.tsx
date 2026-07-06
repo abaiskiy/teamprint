@@ -31,14 +31,14 @@ const advantages = [
 
 export function WhyUsSection() {
   return (
-    <section className="bg-white section-padding">
+    <section className="bg-ink section-padding">
       <div className="container-site">
         <div className="mb-10 lg:mb-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand mb-3">
             Преимущества
           </p>
-          <h2 className="font-heading text-ink">Почему выбирают TeamPrint</h2>
-          <p className="mt-4 text-muted-text text-lg max-w-lg">
+          <h2 className="font-heading text-white">Почему выбирают <span className="text-brand">Team</span>Print</h2>
+          <p className="mt-4 text-white/60 text-lg max-w-lg">
             Собственный цех и 4 года опыта дают нам конкретные преимущества перед посредниками.
           </p>
         </div>
@@ -48,14 +48,14 @@ export function WhyUsSection() {
             const Icon = adv.icon;
             return (
               <FadeIn key={adv.title} delay={i * 0.07} margin="-30px" className="flex flex-col gap-3">
-                <div className="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-brand/20 flex items-center justify-center text-brand shrink-0">
                   <Icon size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h3 className="font-heading font-semibold text-base text-ink leading-snug">
+                  <h3 className="font-heading font-semibold text-base text-white leading-snug">
                     {adv.title}
                   </h3>
-                  <p className="mt-1.5 text-base text-muted-text leading-relaxed">
+                  <p className="mt-1.5 text-base text-white/60 leading-relaxed">
                     {adv.description}
                   </p>
                 </div>

@@ -42,7 +42,7 @@ const segments = [
 
 export function SegmentsSection() {
   return (
-    <section className="bg-white section-padding">
+    <section className="bg-brand/5 section-padding">
       <div className="container-site">
         <div className="mb-10 lg:mb-14 max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand mb-3">
