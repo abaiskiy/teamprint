@@ -23,10 +23,10 @@ export function reachGoal(goal: Goal) {
   if (typeof window.gtag === "function") {
     const eventName =
       goal === "lead_submitted"
-        ? "generate_lead"
+        ? "new_generate_lead"
         : goal === "whatsapp_click"
-        ? "whatsapp_click"
-        : "phone_click";
+        ? "new_whatsapp_click"
+        : "new_phone_click";
 
     window.gtag("event", eventName, {
       send_to: GA_ID,
