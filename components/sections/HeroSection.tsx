@@ -45,7 +45,7 @@ export function HeroSection() {
             <p className="mt-6 text-lg lg:text-xl text-white/75 leading-relaxed max-w-lg">
               Флаги, пресс-воллы, скатерти, виндеры — сублимационная
               печать{" "}
-              <span className="text-white font-semibold">от 1 штуки</span>.
+              <span className="text-white font-semibold">от 1 метра</span>.
             </p>
 
             {/* Trust pills */}
