@@ -6,23 +6,31 @@ import {
   calculatePrice,
   FLAG_SIZES,
   FABRIC_OPTIONS,
-  EDGE_OPTIONS,
   type FlagType,
   type FlagSize,
   type FabricType,
-  type EdgeType,
   type Urgency,
 } from "@/lib/pricing";
 
 export function FlagCalculator() {
   const [flagType, setFlagType] = useState<FlagType>("single");
-  const [size, setSize] = useState<FlagSize>("60x90");
+  const [size, setSize] = useState<FlagSize>("15x25");
   const [customW, setCustomW] = useState(100);
   const [customH, setCustomH] = useState(150);
   const [fabric, setFabric] = useState<FabricType>("politex");
   const [quantity, setQuantity] = useState(10);
-  const [edge, setEdge] = useState<EdgeType>("hem");
   const [urgency, setUrgency] = useState<Urgency>("standard");
+
+  const availableFabrics = flagType === "double"
+    ? FABRIC_OPTIONS.filter((f) => f.value !== "politex")
+    : FABRIC_OPTIONS;
+
+  const handleFlagTypeChange = (t: FlagType) => {
+    setFlagType(t);
+    if (t === "double" && fabric === "politex") {
+      setFabric("gabardin");
+    }
+  };
 
   const result = calculatePrice({
     type: flagType,
@@ -31,7 +39,7 @@ export function FlagCalculator() {
     customHeight: customH,
     fabric,
     quantity,
-    edge,
+    edge: "hem",
     urgency,
   });
 
@@ -42,7 +50,6 @@ export function FlagCalculator() {
     customHeight: size === "custom" ? customH : undefined,
     fabric,
     quantity,
-    edge,
     urgency,
     unitPrice: result.unit,
     total: result.total,
@@ -50,7 +57,7 @@ export function FlagCalculator() {
 
   const handleOrder = () => {
     const msg = encodeURIComponent(
-      `Заявка из калькулятора:\nТип: ${flagType === "single" ? "Односторонний" : "Двухсторонний"}\nРазмер: ${size}\nТкань: ${fabric}\nКоличество: ${quantity} шт.\nОбработка края: ${edge}\nСрочность: ${urgency}\nИтого: ${result.total.toLocaleString("ru")} ₸`
+      `Заявка из калькулятора:\nТип: ${flagType === "single" ? "Односторонний" : "Двухсторонний"}\nРазмер: ${size}\nТкань: ${fabric}\nКоличество: ${quantity} шт.\nСрочность: ${urgency}\nИтого: ${result.total.toLocaleString("ru")} ₸`
     );
     window.open(`https://wa.me/77071451388?text=${msg}`, "_blank");
   };
@@ -72,7 +79,7 @@ export function FlagCalculator() {
                 {(["single", "double"] as FlagType[]).map((t) => (
                   <button
                     key={t}
-                    onClick={() => setFlagType(t)}
+                    onClick={() => handleFlagTypeChange(t)}
                     className={`py-3 px-4 rounded-lg border text-sm font-medium transition-colors ${
                       flagType === t
                         ? "border-brand bg-brand/5 text-brand"
@@ -136,7 +143,7 @@ export function FlagCalculator() {
             <div>
               <label className="block text-sm font-semibold text-ink mb-3">Ткань</label>
               <div className="flex flex-col gap-2">
-                {FABRIC_OPTIONS.map((f) => (
+                {availableFabrics.map((f) => (
                   <button
                     key={f.value}
                     onClick={() => setFabric(f.value)}
@@ -185,26 +192,6 @@ export function FlagCalculator() {
               <p className="text-xs text-muted-text mt-2">
                 Минимальный заказ — 3 000 ₸
               </p>
-            </div>
-
-            {/* Edge */}
-            <div>
-              <label className="block text-sm font-semibold text-ink mb-3">Обработка края</label>
-              <div className="flex flex-col gap-2">
-                {EDGE_OPTIONS.map((e) => (
-                  <button
-                    key={e.value}
-                    onClick={() => setEdge(e.value)}
-                    className={`text-left py-2.5 px-4 rounded-lg border text-sm transition-colors ${
-                      edge === e.value
-                        ? "border-brand bg-brand/5 text-brand font-medium"
-                        : "border-line text-muted-text hover:border-ink/30"
-                    }`}
-                  >
-                    {e.label}
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Urgency */}
@@ -258,9 +245,12 @@ export function FlagCalculator() {
                 Заказать по этой цене
                 <ArrowRight size={18} />
               </button>
-              <p className="text-xs text-muted-text text-center mt-2">
-                Точную стоимость уточнит менеджер после получения макета
-              </p>
+              <div className="mt-3 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+                <span className="text-amber-500 text-base mt-0.5">⚠</span>
+                <p className="text-sm text-amber-800 font-medium leading-snug">
+                  Точную стоимость уточнит менеджер после получения макета
+                </p>
+              </div>
             </div>
           </div>
         </div>
