@@ -8,6 +8,7 @@ interface SEOProps {
   path?: string;
   ogImage?: string;
   noIndex?: boolean;
+  absoluteTitle?: boolean;
 }
 
 export function buildMetadata({
@@ -16,12 +17,13 @@ export function buildMetadata({
   path = "",
   ogImage,
   noIndex = false,
+  absoluteTitle = false,
 }: SEOProps): Metadata {
   const url = `${BASE_URL}${path}`;
   const image = ogImage || `${BASE_URL}/og-default.jpg`;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: url,

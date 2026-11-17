@@ -11,7 +11,7 @@ const GA_ID = "G-BP1SRGNBKY";
 
 type Goal = "lead_submitted" | "whatsapp_click" | "phone_click";
 
-export function reachGoal(goal: Goal) {
+export function reachGoal(goal: Goal, params?: Record<string, string>) {
   if (typeof window === "undefined") return;
 
   // Яндекс Метрика
@@ -30,6 +30,8 @@ export function reachGoal(goal: Goal) {
 
     window.gtag("event", eventName, {
       send_to: GA_ID,
+      page_path: window.location.pathname,
+      ...params,
     });
   }
 }
