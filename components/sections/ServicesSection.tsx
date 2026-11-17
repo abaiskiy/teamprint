@@ -5,6 +5,13 @@ import { FadeIn } from "@/components/shared/FadeIn";
 
 const services = [
   {
+    title: "Сублимационная печать на ткани",
+    description: "Печать на полиэстере от 1 метра для рекламы, одежды и производства.",
+    href: "/pechat-na-tkani",
+    image: "/images/hero-bg-new.jpg",
+    tags: ["Полиэстер", "От 1 метра", "Алматы"],
+  },
+  {
     title: "Флаги и флажная продукция",
     description: "Уличные и интерьерные флаги, виндеры, арки, флажки. Любые размеры и тиражи.",
     href: "/flags",

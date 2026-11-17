@@ -11,6 +11,7 @@ const navLinks = [
     label: "Услуги",
     href: "#",
     children: [
+      { label: "Печать на ткани", href: "/pechat-na-tkani" },
       { label: "Флаги и флажная продукция", href: "/flags" },
       { label: "Текстиль для мероприятий", href: "/sublimation" },
       { label: "Спортивная форма", href: "/sport" },
@@ -56,7 +57,7 @@ export function Header() {
                     <ChevronDown size={13} className="mt-0.5 opacity-60" />
                   </button>
                   {servicesOpen && (
-                    <div className="absolute top-full left-0 w-60 bg-ink border border-white/10 rounded-xl shadow-xl py-1.5 mt-1">
+                    <div className="absolute top-full left-0 w-72 bg-ink border border-white/10 rounded-xl shadow-xl py-1.5 mt-1">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
@@ -100,6 +101,7 @@ export function Header() {
 
           {/* Mid-size nav (lg–xl): compact links */}
           <nav className="hidden lg:flex xl:hidden items-center gap-4 text-sm font-medium text-white/80">
+            <Link href="/pechat-na-tkani" className="hover:text-brand transition-colors whitespace-nowrap">Печать</Link>
             <Link href="/flags" className="hover:text-brand transition-colors whitespace-nowrap">Флаги</Link>
             <Link href="/cases" className="hover:text-brand transition-colors whitespace-nowrap">Кейсы</Link>
             <Link href="/fabrics" className="hover:text-brand transition-colors whitespace-nowrap">Ткани</Link>

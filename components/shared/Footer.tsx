@@ -3,6 +3,7 @@ import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { WA_HREF, PHONE_HREF, PHONE_NUMBER, ADDRESS } from "@/lib/contacts";
 
 const services = [
+  { label: "Печать на ткани", href: "/pechat-na-tkani" },
   { label: "Флаги и флажная продукция", href: "/flags" },
   { label: "Текстиль для мероприятий", href: "/sublimation" },
   { label: "Спортивная форма", href: "/sport" },
